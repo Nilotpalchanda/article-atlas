@@ -2,6 +2,9 @@
 
 A modern, feature-rich article platform built with React and Next.js.
 
+![image](https://github.com/user-attachments/assets/8f431ec6-836b-4883-b345-5eaca9288218)
+
+
 ## 📁 Project Structure
 
 ```
