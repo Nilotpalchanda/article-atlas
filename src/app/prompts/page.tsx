@@ -33,7 +33,7 @@ function Banner() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
-        <h1 className="text-2xl font-extrabold uppercase text-white drop-shadow-lg sm:text-4xl md:text-5xl">
+        <h1 className="text-2xl font-extrabold text-white uppercase drop-shadow-lg sm:text-4xl md:text-5xl">
           Prompt Library
         </h1>
         <p className="mx-auto mt-2 max-w-2xl text-base font-medium text-white/90 sm:text-lg md:text-xl">
@@ -45,12 +45,15 @@ function Banner() {
 }
 
 async function AllPrompts() {
-  const { prompts, hasMore, totalCount } = await getPromptLibrary({ limit: 6, page: 1});
+  const { prompts, hasMore, totalCount } = await getPromptLibrary({
+    limit: 6,
+    page: 1,
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-8 md:px-0">
       <div className="mb-10 text-left">
-        <h1 className="mb-2 text-xl font-bold uppercase text-black">
+        <h1 className="mb-2 text-xl font-bold text-black uppercase">
           Prompt Library
         </h1>
         <div className="mt-4 h-1 w-43 rounded bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
@@ -59,7 +62,7 @@ async function AllPrompts() {
         initialPrompts={prompts || []}
         initialHasMore={hasMore}
         totalCount={totalCount}
-      />    
+      />
     </div>
   );
 }

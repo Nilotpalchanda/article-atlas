@@ -28,7 +28,7 @@ export default function SearchController() {
             <Search className="mr-2 h-5 w-5 text-gray-500" />
             <input
               type="text"
-              placeholder="Enter questions or keywords"
+              placeholder="Ask anything about articles, topics, or keywords"
               className="flex-1 border-none bg-transparent focus:outline-none"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -69,7 +69,7 @@ const TryAsk: React.FC<TryAskProps> = ({ onBadgeClick }) => {
           (data || []).map((item: { id: string; question: string }) => ({
             id: Number(item.id),
             question: item.question,
-          }))
+          })),
         );
         setLoading(false);
       }
@@ -88,7 +88,7 @@ const TryAsk: React.FC<TryAskProps> = ({ onBadgeClick }) => {
             key={i}
             className="animate-pulse rounded-full bg-white px-4 py-1.5 text-xs shadow-lg"
           >
-            <div className="h-4 w-60 rounded bg-gray-300"></div>
+            <div className="h-4 w-69 rounded bg-gray-300"></div>
           </div>
         ))}
       </div>
@@ -98,20 +98,22 @@ const TryAsk: React.FC<TryAskProps> = ({ onBadgeClick }) => {
   if (!prompts.length) return null;
 
   return (
-    <div className="mb-12 flex flex-col items-center justify-center gap-4 pt-8 sm:flex-row sm:flex-wrap">
-      <span className="text-sm text-black">Try asking:</span>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-        {prompts.map((prompt, idx) => (
-          <button
-            key={Number.isNaN(prompt.id) ? `prompt-${idx}` : prompt.id}
-            className="rounded-full cursor-pointer bg-white px-4 py-1.5 text-xs shadow-md transition-shadow hover:bg-gradient-to-r hover:from-blue-100 hover:via-cyan-100 hover:to-teal-100 hover:shadow-md"
-            onClick={() => onBadgeClick(prompt.question)}
-            type="button"
-          >
-            {prompt.question}
-          </button>
-        ))}
+    <>
+      <div className="mb-12 flex flex-col items-center justify-center gap-4 pt-8 sm:flex-row sm:flex-wrap">
+        <span className="text-sm text-black">Try asking:</span>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {prompts.map((prompt, idx) => (
+            <button
+              key={Number.isNaN(prompt.id) ? `prompt-${idx}` : prompt.id}
+              className="cursor-pointer rounded-full bg-white px-4 py-1.5 text-xs shadow-md transition-shadow hover:bg-gradient-to-r hover:from-blue-100 hover:via-cyan-100 hover:to-teal-100 hover:shadow-md"
+              onClick={() => onBadgeClick(prompt.question)}
+              type="button"
+            >
+              {prompt.question}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };

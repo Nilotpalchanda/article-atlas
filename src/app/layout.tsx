@@ -9,7 +9,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {...HOME_SCREEN_METADATA};
+export const metadata: Metadata = { ...HOME_SCREEN_METADATA };
 
 export default function RootLayout({
   children,

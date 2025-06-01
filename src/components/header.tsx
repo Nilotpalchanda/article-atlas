@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50  bg-white shadow-sm">
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -78,22 +78,24 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="space-y-1  bg-white px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`block rounded-md px-3 py-2 text-base font-medium transition-colors ${
-                    isActive(item.href)
-                      ? 'bg-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'
-                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+          <div className="absolute right-0 left-0 z-30 bg-white shadow-md md:hidden">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-4">
+              <div className="space-y-1 bg-white px-2 pt-2 pb-3">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`block rounded-md px-3 py-2 text-base font-medium transition-colors ${
+                      isActive(item.href)
+                        ? 'bg-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'
+                        : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         )}
