@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { HOME_SCREEN_METADATA } from './metadata';
 import { Metadata } from 'next';
-import SearchController from '@/shared/home/SearchContoller';
-import CurrentArticles from '@/shared/home/CurrentArticles';
-import PopularArticles from '@/shared/home/PopularArticles';
-import PromptLibrary from '@/shared/home/PromptLibrary';
+import SearchController from '@/features/home/SearchContoller';
+import CurrentArticles from '@/features/home/CurrentArticles';
+import PopularArticles from '@/features/home/PopularArticles';
+import PromptLibrary from '@/features/home/PromptLibrary';
+;
 
 export const metadata: Metadata = { ...HOME_SCREEN_METADATA };
 

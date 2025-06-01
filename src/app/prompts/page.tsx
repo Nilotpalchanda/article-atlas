@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { getPromptLibrary } from '../actions';
 import { ArticleSkeleton } from './loading';
-import PromptsWithPagination from '@/shared/prompts/PromptsWithPagination';
+import PromptsWithPagination from '@/features/prompts/PromptsWithPagination';
 
 export const metadata: Metadata = { ...PROMPTS_SCREEN_METADATA };
 export const dynamic = 'force-dynamic';

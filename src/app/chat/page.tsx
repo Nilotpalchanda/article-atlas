@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import ChatInterface from './@chatinterface/page';
-import PromptLibrary from '@/shared/home/PromptLibrary';
-import { PromptLibrarySkeleton } from '@/shared/home/PromptLibrary/loading';
+import PromptLibrary from '@/features/home/PromptLibrary';
+import { PromptLibrarySkeleton } from '@/features/home/PromptLibrary/loading';
 import { Metadata } from 'next';
 import { CHAT_SCREEN_METADATA } from './metadata';
 
