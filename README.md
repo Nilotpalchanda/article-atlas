@@ -2,6 +2,12 @@
 
 A modern, feature-rich article platform built with React and Next.js.
 
+Article Atlas empowers users to explore, discover, and interact with a wide range of articles organized by dynamic categories. With real-time chat integration, users can discuss topics, ask questions, and share insights directly within the platform. The application features dedicated sections for popular and current articles, ensuring that trending and up-to-date content is always accessible.
+
+Designed with modularity and scalability in mind, Article Atlas leverages reusable components and a clean project structure, making it easy to maintain and extend. Informative About and FAQ pages provide guidance and context, while intuitive navigation ensures a seamless user experience.
+
+Whether you're a reader seeking knowledge or a developer looking to contribute, Article Atlas offers a robust foundation for modern content discovery and collaboration.
+
 ![image](https://github.com/user-attachments/assets/8f431ec6-836b-4883-b345-5eaca9288218)
 
 
