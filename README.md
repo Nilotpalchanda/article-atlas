@@ -8,6 +8,9 @@ Designed with modularity and scalability in mind, Article Atlas leverages reusab
 
 Whether you're a reader seeking knowledge or a developer looking to contribute, Article Atlas offers a robust foundation for modern content discovery and collaboration.
 
+![image](https://github.com/user-attachments/assets/8f431ec6-836b-4883-b345-5eaca9288218)
+
+
 ## 📁 Project Structure
 
 ```
