@@ -10,7 +10,6 @@ Whether you're a reader seeking knowledge or a developer looking to contribute, 
 
 ![image](https://github.com/user-attachments/assets/8f431ec6-836b-4883-b345-5eaca9288218)
 
-
 ## 📁 Project Structure
 
 ```
@@ -35,31 +34,41 @@ src/
 - Popular and current articles sections
 - Informative FAQ and About pages
 - Modular, reusable components
+- Responsive design for all devices
+- SEO-friendly architecture
+- Easy integration with third-party APIs
+- User authentication and profile management
+- Optimized performance with code-splitting
 
 ## 🛠️ Getting Started
 
 1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/article-atlas.git
-    cd article-atlas
-    ```
+   ```bash
+   git clone https://github.com/your-username/article-atlas.git
+   cd article-atlas
+   ```
 2. **Install dependencies:**
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 3. **Run the development server:**
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 4. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please open issues or submit pull requests.
 
+- Check the [issues](https://github.com/your-username/article-atlas/issues) for tasks to work on.
+- Follow the code style and guidelines outlined in the repository.
+- Add tests for new features or bug fixes.
+
 ## 📄 License
 
 This project is licensed under the MIT License.
 
 ---
+
 Made with ❤️ using React & Next.js
