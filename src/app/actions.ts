@@ -5,11 +5,24 @@ type Prompt = {
   title: string;
 };
 
-export async function getCurrentArticles({ limit = 0 }) {
+export async function getCurrentArticles({
+  limit = 0,
+  filterValue = '',
+}: {
+  limit?: number;
+  filterValue?: string;
+}) {
+  console.log(
+    'Fetching current articles with limit:',
+    limit,
+    'and filter:',
+    filterValue,
+  );
   try {
     // Enforce a maximum limit to avoid fetching too many articles
     const response = await fetch(
-      `${process.env.API_DOMAIN}/atlas-api/current-articles?limit=${limit}`,
+      `${process.env.API_DOMAIN}/atlas-api/current-articles?limit=${limit}&filterValue=${encodeURIComponent(filterValue)}`,
+      { cache: 'no-cache' },
     );
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -72,5 +85,21 @@ export async function getChatHistory() {
   } catch (error) {
     console.error('Failed to fetch chat history:', error);
     throw new Error('Unable to fetch chat history at this time.');
+  }
+}
+
+export async function getCategoriesList(type?: string) {
+  try {
+    const baseUrl = `${process.env.API_DOMAIN}/atlas-api/categories`;
+    const url = type ? `${baseUrl}?type=${encodeURIComponent(type)}` : baseUrl;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const { categories } = await response.json();
+    return categories;
+  } catch (error) {
+    console.error('Failed to fetch categories list:', error);
+    throw new Error('Unable to fetch categories list at this time.');
   }
 }
