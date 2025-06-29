@@ -13,7 +13,7 @@ interface ArticlePick {
 }
 
 const CurrentArticles: React.FC = async () => {
-  const picks = await getCurrentArticles({ limit: 3 });
+  const picks = await getCurrentArticles({ limit: 3, filterValue: '' });
 
   return (
     <section className="mb-8">
@@ -24,7 +24,7 @@ const CurrentArticles: React.FC = async () => {
         </h2>
         <Link href="/currentarticles" className="text-sm text-black">
           View all
-          <div className="w-13 mx-auto h-1 rounded bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
+          <div className="mx-auto h-1 w-13 rounded bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
         </Link>
       </div>
       {picks && picks.length > 0 ? (

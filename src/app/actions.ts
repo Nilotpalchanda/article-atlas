@@ -12,17 +12,10 @@ export async function getCurrentArticles({
   limit?: number;
   filterValue?: string;
 }) {
-  console.log(
-    'Fetching current articles with limit:',
-    limit,
-    'and filter:',
-    filterValue,
-  );
   try {
     // Enforce a maximum limit to avoid fetching too many articles
     const response = await fetch(
       `${process.env.API_DOMAIN}/atlas-api/current-articles?limit=${limit}&filterValue=${encodeURIComponent(filterValue)}`,
-      { cache: 'no-cache' },
     );
     if (!response.ok) {
       throw new Error('Network response was not ok');

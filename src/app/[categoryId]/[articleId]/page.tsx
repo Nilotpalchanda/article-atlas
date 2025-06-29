@@ -19,12 +19,14 @@ interface PageProps {
   params: Promise<{ articleId: string }>;
 }
 
-export async function generateMetadata(
-  { params }: PageProps
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const articles = await getArticles();
-  const article = articles.find((a) => String(a.id) === resolvedParams.articleId);
+  const article = articles.find(
+    (a) => String(a.id) === resolvedParams.articleId,
+  );
 
   if (!article) {
     return {
@@ -59,8 +61,13 @@ export async function generateMetadata(
 }
 
 async function getArticles(): Promise<Article[]> {
-  const popularArticles =  await getPopularArticles({limit:0});
-  const currentArticles = await getCurrentArticles({limit: 0});
+  const popularArticles = await getPopularArticles({
+    limit: 0,
+  });
+  const currentArticles = await getCurrentArticles({
+    limit: 0,
+    filterValue: 'All',
+  });
   return [...popularArticles, ...currentArticles];
 }
 
@@ -156,7 +163,4 @@ export default async function Page({ params }: PageProps) {
   );
 }
 
-
 export const revalidate = 5; // Revalidate every 5 seconds to ensure fresh content
-
-
