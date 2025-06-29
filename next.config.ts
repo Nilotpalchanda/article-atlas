@@ -20,6 +20,13 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    optimizePackageImports: [
+      'lucide-react',
+      '@vercel/speed-insights',
+      'tailwindcss-animate',
+    ],
+  },
 };
 
 export default nextConfig;

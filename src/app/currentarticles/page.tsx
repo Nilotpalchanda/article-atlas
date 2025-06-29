@@ -61,7 +61,7 @@ async function CurrentArticlesSection({
       ? selectedFilter.f[0]
       : selectedFilter.f;
   } else {
-    filterValue = '';
+    filterValue = 'All';
   }
   const { articles, hasMore, total } = await getCurrentArticles({
     limit: 8,

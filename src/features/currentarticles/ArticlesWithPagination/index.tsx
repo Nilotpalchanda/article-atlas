@@ -40,7 +40,7 @@ export default function ArticlesWithPagination({
     try {
       const nextPage = currentPage + 1;
       const data = await getCurrentArticles({
-        limit: 4,
+        limit: 8,
         page: nextPage,
         filterValue,
       });
