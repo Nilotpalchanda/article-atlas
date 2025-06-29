@@ -7,21 +7,22 @@ type Prompt = {
 
 export async function getCurrentArticles({
   limit = 0,
+  page = 1,
   filterValue = '',
 }: {
   limit?: number;
+  page?: number;
   filterValue?: string;
 }) {
   try {
-    // Enforce a maximum limit to avoid fetching too many articles
     const response = await fetch(
-      `${process.env.API_DOMAIN}/atlas-api/current-articles?limit=${limit}&filterValue=${encodeURIComponent(filterValue)}`,
+      `${process.env.API_DOMAIN}/atlas-api/current-articles?limit=${limit}&&page=${page}&filterValue=${encodeURIComponent(filterValue)}`,
     );
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    return data.articles;
+    return data;
   } catch (error) {
     console.error('Failed to fetch current articles:', error);
     throw new Error('Unable to fetch current articles at this time.');
@@ -30,7 +31,6 @@ export async function getCurrentArticles({
 
 export async function getPopularArticles({ limit = 0 }) {
   try {
-    // Enforce a maximum limit to avoid fetching too many articles
     const response = await fetch(
       `${process.env.API_DOMAIN}/atlas-api/popular-articles?limit=${limit}`,
     );

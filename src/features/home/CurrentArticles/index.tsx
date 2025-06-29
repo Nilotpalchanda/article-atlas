@@ -13,7 +13,11 @@ interface ArticlePick {
 }
 
 const CurrentArticles: React.FC = async () => {
-  const picks = await getCurrentArticles({ limit: 3, filterValue: '' });
+  const { articles: picks } = await getCurrentArticles({
+    limit: 3,
+    page: 1,
+    filterValue: '',
+  });
 
   return (
     <section className="mb-8">

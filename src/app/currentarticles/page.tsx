@@ -1,4 +1,3 @@
-import { VerticalCard } from '@/components/card/VerticalCard';
 import { VIEW_CURRENT_ARTICLES_METADATA } from './metadata';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -6,16 +5,7 @@ import { Suspense } from 'react';
 import { ArticleSkeleton } from './loading';
 import { getCurrentArticles } from '../actions';
 import CategoryList from '@/features/home/CategoryList';
-
-type Article = {
-  id: string | number;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  duration: string;
-  rating: number;
-};
+import ArticlesWithPagination from '@/features/currentarticles/ArticlesWithPagination';
 
 export const metadata: Metadata = { ...VIEW_CURRENT_ARTICLES_METADATA };
 export const dynamic = 'force-dynamic';
@@ -73,11 +63,12 @@ async function CurrentArticlesSection({
   } else {
     filterValue = '';
   }
-  const currentArticlesData = await getCurrentArticles({
-    limit: 0,
+  const { articles, hasMore, total } = await getCurrentArticles({
+    limit: 8,
+    page: 1,
     filterValue: filterValue,
   });
-  if (!currentArticlesData) {
+  if (!articles) {
     return <div>Error fetching current articles</div>;
   }
   return (
@@ -89,11 +80,13 @@ async function CurrentArticlesSection({
         </h2>
         <div className="mt-4 h-1 w-50 rounded bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
       </header>
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {currentArticlesData.map((card: Article) => (
-          <VerticalCard key={card.id} {...card} />
-        ))}
-      </div>
+      <ArticlesWithPagination
+        initialArticles={articles || []}
+        initialHasMore={hasMore}
+        totalCount={total}
+        key={filterValue}
+        filterValue={filterValue}
+      />
     </section>
   );
 }

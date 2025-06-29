@@ -64,8 +64,9 @@ async function getArticles(): Promise<Article[]> {
   const popularArticles = await getPopularArticles({
     limit: 0,
   });
-  const currentArticles = await getCurrentArticles({
+  const { articles: currentArticles } = await getCurrentArticles({
     limit: 0,
+    page: 1,
     filterValue: 'All',
   });
   return [...popularArticles, ...currentArticles];
